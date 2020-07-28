@@ -104,11 +104,47 @@ class Program
                 Console.WriteLine("Good Bye!");
                 break;
             }
-            else if (input == CarLot.Inventory.Count - 1) //add a car
-            { 
+            else if (input > CarLot.Inventory.Count - 1) //add a car
+            {
+                Console.Write("Is the car new or used? (u/n):");
+                string userNew = Console.ReadLine().ToUpper();
 
-                    Console.WriteLine("Good Bye ADD A CAR!");
-                    break;
+                if (userNew == "U")
+                {
+                    Console.Write("Enter the Make:");
+                    string Umake = Console.ReadLine();
+                    Console.Write("Enter the Model:");
+                    string Umodel = Console.ReadLine();
+                    Console.Write("Enter the Year:");
+                    int Uyear = int.Parse(Console.ReadLine());
+                    Console.Write("Enter the Price:");
+                    Decimal Uprice = Decimal.Parse(Console.ReadLine());
+                    Console.Write("Enter the Mileage:");
+                    int Umileage = int.Parse(Console.ReadLine());
+
+                    CarLot.AddCar(new UsedCar(Umake, Umodel, Uyear, Uprice, Umileage));
+                    CarLot.PrintCar();
+                }
+                else if(userNew == "N")
+                {
+                    Console.Write("Enter the Make:");
+                    string make = Console.ReadLine();
+                    Console.Write("Enter the Model:");
+                    string model = Console.ReadLine();
+                    Console.Write("Enter the Year:");
+                    int year = int.Parse(Console.ReadLine());
+                    Console.Write("Enter the Price:");
+                    Decimal price = Decimal.Parse(Console.ReadLine());
+
+
+                    CarLot.AddCar(new Car(make, model, year, price));
+                    CarLot.PrintCar();
+                }
+                else if(userNew != "U" || userNew != "N")
+                {
+                    Console.WriteLine("Not a valid Choice");
+                }
+
             }
             else if (input <=CarLot.Inventory.Capacity - 1) //This checks for inventory size -1
             {
