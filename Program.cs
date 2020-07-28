@@ -143,6 +143,7 @@ class Program
                 else if(userNew != "U" || userNew != "N")
                 {
                     Console.WriteLine("Not a valid Choice");
+                    continue;
                 }
 
             }
