@@ -85,8 +85,7 @@ class Program
         Console.WriteLine("Welcome to the Grant Chirpus' Used Car Emporium!");
         Console.WriteLine();
 
-        while (keepBuying)
-        {
+
             CarLot.AddCar(new Car("Nikolai", "Model S", 2017, 54999.90M));
             CarLot.AddCar(new Car("Fourd", "Escapade", 2017, 31999.90M));
             CarLot.AddCar(new Car("Chewie", "Vette", 2017, 44989.95M));
@@ -95,16 +94,17 @@ class Program
             CarLot.AddCar(new UsedCar("GC", "Witherell", 2016, 14450.00M, 3500.3));
 
             CarLot.PrintCar();
-
+        while (keepBuying)
+        {
             Console.Write("Which car would you like?");
             int input = int.Parse(Console.ReadLine());
 
-            if (input == CarLot.Inventory.Capacity) //option 7
+            if (input == CarLot.Inventory.Count +2 ) //quit
             {
                 Console.WriteLine("Good Bye!");
                 break;
             }
-            else if (input == CarLot.Inventory.Capacity - 1) //option 7
+            else if (input == CarLot.Inventory.Count - 1) //add a car
             { 
 
                     Console.WriteLine("Good Bye ADD A CAR!");
@@ -112,7 +112,7 @@ class Program
             }
             else if (input <=CarLot.Inventory.Capacity - 1) //This checks for inventory size -1
             {
-                //Console.WriteLine(CarLot.Inventory[input - 1]);
+                Console.WriteLine(CarLot.Inventory[input - 1]);
                 Console.Write("Would you like to buy this car? (y/n):");
                 string choice = Console.ReadLine().ToUpper();
 
@@ -134,11 +134,6 @@ class Program
                     keepBuying = false;
                 }
 
- 
-                /*else if () //option 8
-                {
-
-                }*/
             }
         }
        
