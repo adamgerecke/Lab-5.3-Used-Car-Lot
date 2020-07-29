@@ -58,7 +58,7 @@ namespace Lab_5._3_Used_Car_Lot
         }
         public override string ToString()
         {
-            return $"{Make}\t{Model,-13}{Year,6}\t{Price,-15} {Mileage,-5}";
+            return $"{Make}\t{Model,-13}{Year,6}\t{Price,-10} (Used) {Mileage,-5}";
         }
     }
     class CarLot
